@@ -13,3 +13,25 @@ function loadFile() {
     };
     reader.readAsText(file);
 }
+
+function showCodeBox() {
+    const selection = window.getSelection();
+    if (selection.toString().length > 0) {
+        const codeBox = document.getElementById('codeBox');
+        codeBox.style.display = 'block';
+    }
+}
+
+function applyCode() {
+    const codeInput = document.getElementById('codeInput');
+    const codeValue = codeInput.value;
+    if (!codeValue) {
+        alert('Please enter a code.');
+        return;
+    }
+    const selectedText = window.getSelection().toString();
+    const codeList = document.getElementById('codeList');
+    codeList.innerHTML += `<div><b>${codeValue}</b>: ${selectedText}</div>`;
+    document.getElementById('codeBox').style.display = 'none';
+    codeInput.value = '';
+}
