@@ -8,13 +8,17 @@
 <body>
     <div class="container">
         <div class="left-panel">
-            <textarea id="notes" placeholder="Enter notes and codes here..."></textarea>
+            <div id="codeList">Coded Items:</div>
         </div>
         <div class="right-panel">
             <input type="file" id="fileInput" accept=".txt">
             <button onclick="loadFile()">Load Text</button>
-            <div id="textContent" contenteditable="true"></div>
+            <div id="textContent" contenteditable="true" onmouseup="showCodeBox()"></div>
         </div>
+    </div>
+    <div id="codeBox" style="display:none;">
+        <input type="text" id="codeInput" placeholder="Enter code">
+        <button onclick="applyCode()">Apply</button>
     </div>
     <script src="script.js"></script>
 </body>
