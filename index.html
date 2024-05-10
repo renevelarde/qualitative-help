@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +9,21 @@
 <body>
     <div class="container">
         <div class="left-panel">
-            <div id="codeList">Coded Items:</div>
+            <div id="memoPanel">
+                <textarea id="memoInput" placeholder="Enter memos here..."></textarea>
+                <button onclick="addMemo()">Add Memo</button>
+                <div id="memos"></div>
+            </div>
+            <div id="codePanel">
+                <textarea id="codeInput" placeholder="Enter code here..."></textarea>
+                <button onclick="applyCode()">Apply Code</button>
+            </div>
         </div>
         <div class="right-panel">
             <input type="file" id="fileInput" accept=".txt">
             <button onclick="loadFile()">Load Text</button>
-            <div id="textContent" contenteditable="true" onmouseup="showCodeBox()"></div>
+            <div id="textContent" contenteditable="true"></div>
         </div>
-    </div>
-    <div id="codeBox" style="display:none;">
-        <input type="text" id="codeInput" placeholder="Enter code">
-        <button onclick="applyCode()">Apply</button>
     </div>
     <script src="script.js"></script>
 </body>
