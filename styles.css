@@ -1,3 +1,4 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -11,9 +12,14 @@ body {
     background-color: #f9f9f9;
 }
 
-#codedText {
+#codedTextList {
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #d9edf7;
+    list-style-type: none;
+}
+
+span.coded {
+    background-color: yellow;
 }
