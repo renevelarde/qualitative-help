@@ -16,4 +16,29 @@ function loadFile() {
 function applyCode() {
     const codeInput = document.getElementById('codeInput');
     const selectedText = window.getSelection().toString();
-    if (!selectedText
+    if (!selectedText) {
+        alert('Please select text to code.');
+        return;
+    }
+    const codeValue = codeInput.value;
+    if (!codeValue) {
+        alert('Please enter a code.');
+        return;
+    }
+    const codeList = document.createElement('div');
+    codeList.innerHTML = `<strong>${codeValue}</strong>: ${selectedText}`;
+    document.getElementById('codePanel').appendChild(codeList);
+    codeInput.value = '';
+}
+function addMemo() {
+    const memoInput = document.getElementById('memoInput');
+    const memoValue = memoInput.value;
+    if (!memoValue) {
+        alert('Please enter a memo.');
+        return;
+    }
+    const memoList = document.createElement('div');
+    memoList.textContent = memoValue;
+    document.getElementById('memos').appendChild(memoList);
+    memoInput.value = '';
+}
