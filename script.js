@@ -1,25 +1,21 @@
+// script.js
 function loadFile() {
     const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
-        alert('Please select a text file.');
-        return;
-    }
-
     const file = fileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(e) {
         const textContent = document.getElementById('textContent');
-        textContent.innerText = e.target.result;
+        textContent.innerHTML = e.target.result.replace(/\n/g, '<br>').replace(/(.+?)(<br>|$)/g, "<span>$1</span><br>");
     };
     reader.readAsText(file);
 }
 
 function codeSelectedText() {
-    const textContent = document.getElementById('textContent');
-    const selectedText = window.getSelection().toString();
-    if (selectedText.length > 0) {
-        document.getElementById('codedText').innerText += 'Coded Text: ' + selectedText + '\n';
-    } else {
-        alert('No text selected.');
-    }
+    const selection = window.getSelection();
+    if (!selection.rangeCount) return;
+    let span = document.createElement("span");
+    span.className = "coded";
+    selection.getRangeAt(0).surroundContents(span);
+    let codedText = selection.toString();
+    document.getElementById('codedTextList').innerHTML += `<li>Coded Text: ${codedText}</li>`;
 }
