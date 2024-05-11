@@ -1,19 +1,43 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#tabs button {
+    background-color: #eeeeee;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#tabs button:hover {
+    background-color: #dddddd;
+}
+.container {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin: 10px;
+    background-color: #fff;
 }
-
 #textContent {
-    margin-top: 20px;
-    padding: 10px;
+    min-height: 300px;
+    color: blue; /* Text quotes in blue */
     border: 1px solid #ccc;
-    min-height: 100px;
-    background-color: #f9f9f9;
+    padding: 10px;
 }
-
-#codedText {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #d9edf7;
+.code {
+    color: purple; /* Codes in purple */
+    background-color: #f0eaff;
+}
+.memo {
+    color: orange; /* Memos in orange */
+    background-color: #fff3e0;
 }
