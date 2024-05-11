@@ -28,6 +28,9 @@ body {
     flex: 1;
     padding: 10px;
 }
+.left-panel {
+    background-color: #222; /* Darker shade for control panel */
+}
 #textContent {
     background-color: #222;
     color: blue;
@@ -36,10 +39,10 @@ body {
     overflow-y: scroll;
 }
 .code {
-    background-color: purple;
-    color: white;
+    color: purple;
+    background-color: #f0eaff;
 }
 .memo {
-    background-color: orange;
-    color: white;
+    color: orange;
+    background-color: #fff3e0;
 }
