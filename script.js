@@ -20,7 +20,6 @@ function showTab(tabName) {
     });
 }
 
-// Function to handle the application of codes to the selected text
 function applyCode() {
     let selectedText = window.getSelection().toString();
     if (!selectedText) {
@@ -29,24 +28,37 @@ function applyCode() {
     }
     let code = prompt("Enter a code for the selected text:");
     if (code) {
-        let codedText = document.createElement('span');
-        codedText.textContent = selectedText;
-        codedText.className = 'code';
-        codedText.style.color = 'purple'; // Applying purple color to coded text
-        window.getSelection().getRangeAt(0).surroundContents(codedText);
+        const selection = window.getSelection();
+        const span = document.createElement('span');
+        span.textContent = selectedText;
+        span.className = 'code';
+        span.style.color = 'purple';
+        selection.getRangeAt(0).surroundContents(span);
 
         let codeDisplay = document.getElementById('codes');
-        codeDisplay.innerHTML += `<div class="code-entry">${code}: "${selectedText}"</div>`;
+        codeDisplay.innerHTML += `<div class="code-entry"><strong>Code:</strong> ${code}<br><strong>Text:</strong> "${selectedText}"</div>`;
     }
 }
 
-// Function to add memos
 function addMemo() {
     let memoText = prompt("Enter a memo:");
     if (memoText) {
         let memoDisplay = document.getElementById('memos');
-        memoDisplay.innerHTML += `<div class="memo-entry">${memoText}</div>`;
+        memoDisplay.innerHTML += `<div class="memo-entry"><strong>Memo:</strong> ${memoText}</div>`;
     }
 }
 
 document.getElementById('fileInput').addEventListener('change', loadFile);
+
+// Additional code to highlight text with different colors based on their coding or memo status
+function highlightText() {
+    const textBlocks = document.querySelectorAll('#textContent span');
+    textBlocks.forEach(block => {
+        if (block.classList.contains('code')) {
+            block.style.backgroundColor = '#f0eaff';  // Purple background for coded text
+        }
+        if (block.classList.contains('memo')) {
+            block.style.backgroundColor = '#fff3e0';  // Orange background for memos
+        }
+    });
+}
