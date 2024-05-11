@@ -21,44 +21,28 @@ function showTab(tabName) {
 }
 
 function applyCode() {
-    let selectedText = window.getSelection().toString();
-    if (!selectedText) {
-        alert("Please select some text to code.");
+    const codeInput = document.getElementById('codeInput');
+    const codeValue = codeInput.value;
+    if (!codeValue) {
+        alert('Please enter a code.');
         return;
     }
-    let code = prompt("Enter a code for the selected text:");
-    if (code) {
-        const selection = window.getSelection();
-        const span = document.createElement('span');
-        span.textContent = selectedText;
-        span.className = 'code';
-        span.style.color = 'purple';
-        selection.getRangeAt(0).surroundContents(span);
-
-        let codeDisplay = document.getElementById('codes');
-        codeDisplay.innerHTML += `<div class="code-entry"><strong>Code:</strong> ${code}<br><strong>Text:</strong> "${selectedText}"</div>`;
-    }
+    const selectedText = window.getSelection().toString();
+    const codeDisplay = document.getElementById('codes');
+    codeDisplay.innerHTML += `<div><b>Code:</b> ${codeValue}<br><b>Text:</b> "${selectedText}"</div>`;
+    codeInput.value = ''; // Clear input after submitting
 }
 
 function addMemo() {
-    let memoText = prompt("Enter a memo:");
-    if (memoText) {
-        let memoDisplay = document.getElementById('memos');
-        memoDisplay.innerHTML += `<div class="memo-entry"><strong>Memo:</strong> ${memoText}</div>`;
+    const memoInput = document.getElementById('memoInput');
+    const memoText = memoInput.value;
+    if (!memoText) {
+        alert('Please enter a memo.');
+        return;
     }
+    const memoDisplay = document.getElementById('memos');
+    memoDisplay.innerHTML += `<div><b>Memo:</b> ${memoText}</div>`;
+    memoInput.value = ''; // Clear textarea after submitting
 }
 
 document.getElementById('fileInput').addEventListener('change', loadFile);
-
-// Additional code to highlight text with different colors based on their coding or memo status
-function highlightText() {
-    const textBlocks = document.querySelectorAll('#textContent span');
-    textBlocks.forEach(block => {
-        if (block.classList.contains('code')) {
-            block.style.backgroundColor = '#f0eaff';  // Purple background for coded text
-        }
-        if (block.classList.contains('memo')) {
-            block.style.backgroundColor = '#fff3e0';  // Orange background for memos
-        }
-    });
-}
