@@ -16,21 +16,18 @@
         <div class="left-panel">
             <input type="file" id="fileInput" accept=".txt">
             <button onclick="loadFile()">Load Text</button>
-            <textarea id="notes" placeholder="Enter notes here..."></textarea>
+            <input type="text" id="codeInput" placeholder="Enter code">
+            <button onclick="applyCode()">Apply Code</button>
+            <textarea id="memoInput" placeholder="Enter memo"></textarea>
+            <button onclick="addMemo()">Add Memo</button>
         </div>
         <div class="right-panel">
             <div id="textContent" contenteditable="true"></div>
         </div>
     </div>
-    <div class="container" id="codes" style="display:none;">
-        <!-- Codes display -->
-    </div>
-    <div class="container" id="memos" style="display:none;">
-        <!-- Memos display -->
-    </div>
-    <div class="container" id="relationships" style="display:none;">
-        <!-- Relationships map display -->
-    </div>
+    <div class="container" id="codes" style="display:none;"></div>
+    <div class="container" id="memos" style="display:none;"></div>
+    <div class="container" id="relationships" style="display:none;"></div>
     <script src="script.js"></script>
 </body>
 </html>
