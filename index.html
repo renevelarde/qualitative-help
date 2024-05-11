@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,23 +6,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="left-panel">
-            <div id="memoPanel">
-                <textarea id="memoInput" placeholder="Enter memos here..."></textarea>
-                <button onclick="addMemo()">Add Memo</button>
-                <div id="memos"></div>
-            </div>
-            <div id="codePanel">
-                <textarea id="codeInput" placeholder="Enter code here..."></textarea>
-                <button onclick="applyCode()">Apply Code</button>
-            </div>
-        </div>
-        <div class="right-panel">
-            <input type="file" id="fileInput" accept=".txt">
-            <button onclick="loadFile()">Load Text</button>
-            <div id="textContent" contenteditable="true"></div>
-        </div>
+    <div id="tabs">
+        <button onclick="showTab('transcript')">Transcript</button>
+        <button onclick="showTab('codes')">Codes</button>
+        <button onclick="showTab('memos')">Memos</button>
+        <button onclick="showTab('relationships')">Relationships</button>
+    </div>
+    <div class="container" id="transcript">
+        <input type="file" id="fileInput" accept=".txt">
+        <button onclick="loadFile()">Load Text</button>
+        <div id="textContent" contenteditable="true"></div>
+    </div>
+    <div class="container" id="codes" style="display:none;">
+        <!-- Codes display -->
+    </div>
+    <div class="container" id="memos" style="display:none;">
+        <!-- Memos display -->
+    </div>
+    <div class="container" id="relationships" style="display:none;">
+        <!-- Relationships map display -->
     </div>
     <script src="script.js"></script>
 </body>
