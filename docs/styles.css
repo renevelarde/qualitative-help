@@ -1,43 +1,45 @@
 body {
     font-family: 'Helvetica', 'Arial', sans-serif;
-    color: #333;
-    background-color: #f4f4f9;
+    color: #fff;
+    background-color: #333;
     margin: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 #tabs button {
-    background-color: #eeeeee;
+    background-color: #555;
     border: none;
     padding: 10px 20px;
     margin: 5px;
     font-size: 16px;
     cursor: pointer;
+    color: white;
 }
 #tabs button:hover {
-    background-color: #dddddd;
+    background-color: #777;
 }
 .container {
     display: flex;
-    flex-direction: column;
+    height: 100%;
     padding: 20px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    margin: 10px;
-    background-color: #fff;
 }
-#textContent {
-    min-height: 300px;
-    color: blue; /* Text quotes in blue */
-    border: 1px solid #ccc;
+.left-panel, .right-panel {
+    flex: 1;
     padding: 10px;
 }
+#textContent {
+    background-color: #222;
+    color: blue;
+    padding: 10px;
+    height: 90%;
+    overflow-y: scroll;
+}
 .code {
-    color: purple; /* Codes in purple */
-    background-color: #f0eaff;
+    background-color: purple;
+    color: white;
 }
 .memo {
-    color: orange; /* Memos in orange */
-    background-color: #fff3e0;
+    background-color: orange;
+    color: white;
 }
