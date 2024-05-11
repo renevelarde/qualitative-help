@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Simple Text Coding Tool</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Document Coding Tool</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Text Coding Tool</h1>
-    <input type="file" id="fileInput" accept=".txt">
-    <button onclick="loadFile()">Load Text</button>
-    <div id="textContent" contenteditable="true"></div>
-    <button onclick="codeSelectedText()">Code Selected Text</button>
-    <div id="codedText"></div>
-<script src="script.js"></script>
+    <div id="tabs">
+        <button onclick="showTab('transcript')">Transcript</button>
+        <button onclick="showTab('codes')">Codes</button>
+        <button onclick="showTab('memos')">Memos</button>
+        <button onclick="showTab('relationships')">Relationships</button>
+    </div>
+    <div class="container" id="transcript">
+        <input type="file" id="fileInput" accept=".txt">
+        <button onclick="loadFile()">Load Text</button>
+        <div id="textContent" contenteditable="true"></div>
+    </div>
+    <div class="container" id="codes" style="display:none;">
+        <!-- Codes display -->
+    </div>
+    <div class="container" id="memos" style="display:none;">
+        <!-- Memos display -->
+    </div>
+    <div class="container" id="relationships" style="display:none;">
+        <!-- Relationships map display -->
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
