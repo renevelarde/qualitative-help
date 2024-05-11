@@ -1,4 +1,3 @@
-// script.js
 function loadFile() {
     const fileInput = document.getElementById('fileInput');
     if (fileInput.files.length === 0) {
@@ -13,32 +12,41 @@ function loadFile() {
     };
     reader.readAsText(file);
 }
+
+function showTab(tabName) {
+    const tabs = document.querySelectorAll('.container');
+    tabs.forEach(tab => {
+        tab.style.display = tab.id === tabName ? 'block' : 'none';
+    });
+}
+
+// Function to handle the application of codes to the selected text
 function applyCode() {
-    const codeInput = document.getElementById('codeInput');
-    const selectedText = window.getSelection().toString();
+    let selectedText = window.getSelection().toString();
     if (!selectedText) {
-        alert('Please select text to code.');
+        alert("Please select some text to code.");
         return;
     }
-    const codeValue = codeInput.value;
-    if (!codeValue) {
-        alert('Please enter a code.');
-        return;
+    let code = prompt("Enter a code for the selected text:");
+    if (code) {
+        let codedText = document.createElement('span');
+        codedText.textContent = selectedText;
+        codedText.className = 'code';
+        codedText.style.color = 'purple'; // Applying purple color to coded text
+        window.getSelection().getRangeAt(0).surroundContents(codedText);
+
+        let codeDisplay = document.getElementById('codes');
+        codeDisplay.innerHTML += `<div class="code-entry">${code}: "${selectedText}"</div>`;
     }
-    const codeList = document.createElement('div');
-    codeList.innerHTML = `<strong>${codeValue}</strong>: ${selectedText}`;
-    document.getElementById('codePanel').appendChild(codeList);
-    codeInput.value = '';
 }
+
+// Function to add memos
 function addMemo() {
-    const memoInput = document.getElementById('memoInput');
-    const memoValue = memoInput.value;
-    if (!memoValue) {
-        alert('Please enter a memo.');
-        return;
+    let memoText = prompt("Enter a memo:");
+    if (memoText) {
+        let memoDisplay = document.getElementById('memos');
+        memoDisplay.innerHTML += `<div class="memo-entry">${memoText}</div>`;
     }
-    const memoList = document.createElement('div');
-    memoList.textContent = memoValue;
-    document.getElementById('memos').appendChild(memoList);
-    memoInput.value = '';
 }
+
+document.getElementById('fileInput').addEventListener('change', loadFile);
